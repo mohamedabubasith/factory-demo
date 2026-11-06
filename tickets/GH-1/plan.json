@@ -1,0 +1,29 @@
+{
+  "summary": "Extend total() in src/cart.js with an optional discount code. Two small steps: SAVE10 applied to the unrounded sum with a single final rounding, then unknown-code error handling.",
+  "steps": [
+    {
+      "task": "Create test/discount.test.js with tests for SAVE10: 0.10×3 with SAVE10 → 0.27, and total(items) without a code and with undefined unchanged. Then add an optional `code` param to total() in src/cart.js; SAVE10 multiplies the unrounded sum by 0.9, with Math.round(x*100)/100 once at the end (ADR 0001). No rounding before the discount.",
+      "doneWhen": "node --test test/discount.test.js",
+      "protect": [
+        "test/cart.test.js"
+      ],
+      "files": [
+        "src/cart.js",
+        "test/discount.test.js",
+        "docs/adr/0001-money.md"
+      ]
+    },
+    {
+      "task": "Create test/unknown-code.test.js asserting total(items,'BOGUS') throws Error('unknown code: BOGUS') (assert.throws with message match), and that SAVE10 still works. Implement via a code→rate lookup in src/cart.js that throws for unknown codes (empty/undefined code means no discount).",
+      "doneWhen": "node --test test/unknown-code.test.js",
+      "protect": [
+        "test/cart.test.js",
+        "test/discount.test.js"
+      ],
+      "files": [
+        "src/cart.js",
+        "test/unknown-code.test.js"
+      ]
+    }
+  ]
+}
