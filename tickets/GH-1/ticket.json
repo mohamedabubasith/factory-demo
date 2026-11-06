@@ -1,0 +1,6 @@
+{
+  "key": "GH-1",
+  "title": "Add discount codes to the cart",
+  "description": "Customers should be able to enter a discount code at checkout.\n\n- `total(items, code)` takes an optional code; without one, totals work as today.\n- `SAVE10` takes 10% off the cart total.\n- An unknown code throws `Error('unknown code: <code>')`.\n- Amounts must follow our money rules (see the knowledge base): no rounding before the discount.\n\nExample: one line of price 0.10 × qty 3 with SAVE10 → 0.27.",
+  "url": "https://github.com/mohamedabubasith/factory-demo/issues/1"
+}
