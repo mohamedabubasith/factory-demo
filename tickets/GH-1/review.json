@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "The change follows the plan and ADR 0001. SAVE10 multiplies the unrounded sum by 0.9 and is rounded once at the end. Unknown codes throw 'unknown code: X'. Empty and undefined codes mean no discount. Tests cover each case in the plan. I did not run the tests; this review is from the diff alone.",
+  "findings": []
+}
